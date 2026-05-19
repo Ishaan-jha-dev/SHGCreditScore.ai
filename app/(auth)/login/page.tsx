@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Lock, Mail, ArrowRight } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -38,53 +39,67 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-gray-50">
-      <div className="mx-auto w-full max-w-md space-y-6 rounded-xl bg-white p-8 shadow-md">
-        <div className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold tracking-tight">Login</h1>
-          <p className="text-gray-500">Enter your credentials to access the portal</p>
+    <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-slate-50 to-brand-50 p-4">
+      <div className="absolute inset-0 bg-grid-slate-100/[0.04] bg-[bottom_1px_center]" />
+      <div className="relative mx-auto w-full max-w-md space-y-8 rounded-2xl bg-white/80 backdrop-blur-xl p-8 shadow-2xl border border-white/20">
+        <div className="space-y-3 text-center">
+          <div className="mx-auto h-12 w-12 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-brand-500/30 mb-4">
+            <span className="text-primary-foreground font-bold text-2xl">S</span>
+          </div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-foreground">Welcome Back</h1>
+          <p className="text-sm text-muted-foreground font-medium">Enter your credentials to access the portal</p>
         </div>
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-5">
           <div className="space-y-2">
-            <label className="text-sm font-medium leading-none" htmlFor="email">
-              Email
+            <label className="text-sm font-semibold text-foreground leading-none" htmlFor="email">
+              Email Address
             </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="officer@luckbank.in"
-              required
-              className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <div className="relative">
+              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <input
+                id="email"
+                type="email"
+                placeholder="officer@luckbank.in"
+                required
+                className="flex h-11 w-full rounded-lg border border-border bg-white px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium leading-none" htmlFor="password">
+            <label className="text-sm font-semibold text-foreground leading-none" htmlFor="password">
               Password
             </label>
-            <input
-              id="password"
-              type="password"
-              required
-              className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="relative">
+              <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                required
+                className="flex h-11 w-full rounded-lg border border-border bg-white px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
           </div>
-          {error && <p className="text-sm text-red-500">{error}</p>}
+          {error && <p className="text-sm font-medium text-red-500 bg-red-50 p-3 rounded-lg">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex h-10 w-full items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
+            className="group relative flex h-11 w-full items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-brand-500/20 transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 overflow-hidden"
           >
-            {loading ? 'Logging in...' : 'Login'}
+            <span className="relative z-10 flex items-center gap-2">
+              {loading ? 'Logging in...' : 'Sign In'}
+              {!loading && <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />}
+            </span>
           </button>
         </form>
-        <div className="text-center text-sm">
+        <div className="text-center text-sm font-medium text-muted-foreground pt-2 border-t border-border">
           Don&apos;t have an account?{' '}
-          <Link href="/register" className="font-medium underline underline-offset-4 hover:text-gray-900">
-            Register
+          <Link href="/register" className="font-semibold text-primary hover:text-primary/80 transition-colors">
+            Register here
           </Link>
         </div>
       </div>

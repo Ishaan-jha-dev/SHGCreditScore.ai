@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { UploadCloud, File, X, CheckCircle2 } from 'lucide-react';
 
 export default function UploadDocumentsPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -59,14 +60,14 @@ export default function UploadDocumentsPage({ params }: { params: { id: string }
 
   return (
     <div className="mx-auto w-full max-w-3xl space-y-6">
-      <div className="space-y-2 text-left">
-        <h1 className="text-3xl font-bold tracking-tight">Upload Documents</h1>
-        <p className="text-gray-500">Upload meeting minutes, passbooks, and internal loan ledgers for SHG assessment.</p>
+      <div className="space-y-2 text-left mb-6">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">Upload Documents</h1>
+        <p className="text-muted-foreground">Upload meeting minutes, passbooks, and internal loan ledgers for SHG assessment.</p>
       </div>
 
-      <div className="rounded-xl border bg-white p-6 shadow-sm">
+      <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
         <form 
-          className={`flex flex-col items-center justify-center p-10 border-2 border-dashed rounded-lg transition-colors ${dragActive ? 'border-gray-900 bg-gray-50' : 'border-gray-300'}`}
+          className={`flex flex-col items-center justify-center p-12 border-2 border-dashed rounded-xl transition-all ${dragActive ? 'border-primary bg-brand-50/50' : 'border-border hover:border-brand-300 hover:bg-slate-50'}`}
           onDragEnter={handleDrag}
           onDragLeave={handleDrag}
           onDragOver={handleDrag}
@@ -81,35 +82,40 @@ export default function UploadDocumentsPage({ params }: { params: { id: string }
             id="file-upload" 
           />
           <label htmlFor="file-upload" className="flex flex-col items-center justify-center cursor-pointer space-y-4">
-            <div className="p-4 bg-gray-100 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-600"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+            <div className="p-4 bg-brand-50 rounded-full text-primary shadow-sm shadow-brand-100">
+              <UploadCloud className="h-8 w-8" />
             </div>
             <div className="text-center">
-              <p className="text-sm font-medium text-gray-900">Click to upload or drag and drop</p>
-              <p className="text-xs text-gray-500 mt-1">PDF, JPG, PNG (Max 10MB per file)</p>
+              <p className="text-sm font-semibold text-foreground">Click to upload or drag and drop</p>
+              <p className="text-xs text-muted-foreground mt-1.5">PDF, JPG, PNG (Max 10MB per file)</p>
             </div>
           </label>
         </form>
 
         {files.length > 0 && (
-          <div className="mt-8 space-y-4">
-            <h3 className="font-medium text-sm">Selected Files</h3>
-            <ul className="space-y-2">
+          <div className="mt-8 space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <h3 className="font-semibold text-sm text-foreground flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              Selected Files ({files.length})
+            </h3>
+            <ul className="space-y-3">
               {files.map((file, index) => (
-                <li key={index} className="flex items-center justify-between p-3 border rounded-md">
+                <li key={index} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 border border-border bg-slate-50/50 rounded-xl gap-3">
                   <div className="flex items-center gap-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    <span className="text-sm font-medium text-gray-700">{file.name}</span>
+                    <div className="p-2 bg-white rounded-lg shadow-sm">
+                      <File className="h-5 w-5 text-brand-600" />
+                    </div>
+                    <span className="text-sm font-semibold text-foreground truncate max-w-[200px]">{file.name}</span>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <select className="text-xs border rounded p-1 text-gray-600">
+                  <div className="flex items-center gap-3 w-full sm:w-auto">
+                    <select className="flex-1 sm:flex-none text-xs border border-border bg-white rounded-lg p-2 text-foreground font-medium focus:outline-none focus:ring-2 focus:ring-primary">
                       <option>Meeting Minutes</option>
                       <option>Bank Passbook</option>
                       <option>Loan Ledger</option>
                       <option>Attendance Register</option>
                     </select>
-                    <button onClick={() => removeFile(index)} className="text-gray-400 hover:text-red-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+                    <button onClick={() => removeFile(index)} className="p-2 text-muted-foreground hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
+                      <X className="h-4 w-4" />
                     </button>
                   </div>
                 </li>
@@ -118,13 +124,13 @@ export default function UploadDocumentsPage({ params }: { params: { id: string }
           </div>
         )}
 
-        <div className="flex justify-end pt-6 mt-6 border-t">
+        <div className="flex justify-end pt-6 mt-8 border-t border-border">
           <button
             onClick={handleProcess}
             disabled={loading || files.length === 0}
-            className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 py-2 text-sm font-medium text-white shadow hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-brand-500/20 transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 gap-2"
           >
-            {loading ? 'Processing Documents...' : 'Process Documents'}
+            {loading ? 'Processing...' : 'Process Documents'}
           </button>
         </div>
       </div>
