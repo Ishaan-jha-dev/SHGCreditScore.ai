@@ -71,15 +71,15 @@ export default function DashboardPage() {
       </div>
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3 mt-4">
         <div className="rounded-2xl border border-border bg-card text-card-foreground shadow-sm xl:col-span-2 overflow-hidden">
-          <div className="flex flex-col space-y-1.5 p-6 border-b border-border bg-slate-50/50">
+          <div className="flex flex-col space-y-1.5 p-6 border-b border-border bg-slate-50/50 dark:bg-slate-900/50">
             <h3 className="font-semibold text-lg leading-none tracking-tight">Recent Assessments</h3>
             <p className="text-sm text-muted-foreground">You have 12 pending assessments.</p>
           </div>
           <div className="p-0">
             <div className="relative w-full overflow-auto">
               <table className="w-full caption-bottom text-sm">
-                <thead className="[&_tr]:border-b bg-slate-50/50">
-                  <tr className="border-b border-border transition-colors hover:bg-slate-100/50">
+                <thead className="[&_tr]:border-b bg-slate-50/50 dark:bg-slate-900/50">
+                  <tr className="border-b border-border transition-colors hover:bg-slate-100/50 dark:hover:bg-slate-800/50">
                     <th className="h-12 px-6 text-left align-middle font-semibold text-muted-foreground">SHG Name</th>
                     <th className="h-12 px-6 text-left align-middle font-semibold text-muted-foreground">Status</th>
                     <th className="h-12 px-6 text-left align-middle font-semibold text-muted-foreground">Score</th>
@@ -87,7 +87,7 @@ export default function DashboardPage() {
                   </tr>
                 </thead>
                 <tbody className="[&_tr:last-child]:border-0">
-                  <tr className="border-b border-border transition-colors hover:bg-slate-50/80">
+                  <tr className="border-b border-border transition-colors hover:bg-slate-50/80 dark:hover:bg-slate-800/80">
                     <td className="p-6 align-middle">
                       <div className="font-semibold text-foreground">Shakti Mahila Mandal</div>
                       <div className="text-sm text-muted-foreground mt-0.5">Lucknow, UP</div>
@@ -107,7 +107,7 @@ export default function DashboardPage() {
                       <Link href="/dashboard/assessments/1" className="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-slate-100 h-9 px-4 py-2 text-primary">View Details</Link>
                     </td>
                   </tr>
-                  <tr className="border-b border-border transition-colors hover:bg-slate-50/80">
+                  <tr className="border-b border-border transition-colors hover:bg-slate-50/80 dark:hover:bg-slate-800/80">
                     <td className="p-6 align-middle">
                       <div className="font-semibold text-foreground">Durga Self Help Group</div>
                       <div className="text-sm text-muted-foreground mt-0.5">Kanpur, UP</div>

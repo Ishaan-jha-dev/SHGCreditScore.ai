@@ -39,9 +39,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-slate-50 to-brand-50 p-4">
+    <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-slate-50 to-brand-50 dark:from-slate-950 dark:to-brand-950 p-4">
       <div className="absolute inset-0 bg-grid-slate-100/[0.04] bg-[bottom_1px_center]" />
-      <div className="relative mx-auto w-full max-w-md space-y-8 rounded-2xl bg-white/80 backdrop-blur-xl p-8 shadow-2xl border border-white/20">
+      <div className="relative mx-auto w-full max-w-md space-y-8 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 shadow-2xl border border-white/20 dark:border-white/10">
         <div className="space-y-3 text-center">
           <div className="mx-auto h-12 w-12 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-brand-500/30 mb-4">
             <span className="text-primary-foreground font-bold text-2xl">S</span>
@@ -61,7 +61,7 @@ export default function LoginPage() {
                 type="email"
                 placeholder="officer@luckbank.in"
                 required
-                className="flex h-11 w-full rounded-lg border border-border bg-white px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
+                className="flex h-11 w-full rounded-lg border border-border bg-white dark:bg-slate-950 px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -78,7 +78,7 @@ export default function LoginPage() {
                 type="password"
                 placeholder="••••••••"
                 required
-                className="flex h-11 w-full rounded-lg border border-border bg-white px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
+                className="flex h-11 w-full rounded-lg border border-border bg-white dark:bg-slate-950 px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

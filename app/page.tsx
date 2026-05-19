@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-gradient-to-br from-slate-50 to-brand-50">
+    <div className="flex flex-col min-h-[100dvh] bg-gradient-to-br from-slate-50 to-brand-50 dark:from-slate-950 dark:to-brand-950">
       <header className="px-4 lg:px-8 h-16 flex items-center glass sticky top-0 z-50">
         <Link className="flex items-center justify-center gap-2 transition-transform hover:scale-105" href="/">
           <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center shadow-sm shadow-brand-500/40">
@@ -20,7 +20,7 @@ export default function Home() {
         </nav>
       </header>
       <main className="flex-1 flex flex-col items-center justify-center p-4 text-center">
-        <div className="inline-flex items-center rounded-full border border-brand-200 bg-brand-50/50 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-brand-800 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <div className="inline-flex items-center rounded-full border border-brand-200 dark:border-brand-800 bg-brand-50/50 dark:bg-brand-900/50 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-brand-800 dark:text-brand-300 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
           ✨ Revolutionizing Microfinance
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl/none text-foreground max-w-4xl animate-in fade-in slide-in-from-bottom-5 duration-700 delay-100">
@@ -38,7 +38,7 @@ export default function Home() {
           </Link>
           <Link
             href="#"
-            className="inline-flex h-14 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm border border-border px-8 text-base font-semibold text-foreground shadow-sm transition-all hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="inline-flex h-14 items-center justify-center rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-border px-8 text-base font-semibold text-foreground shadow-sm transition-all hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             Learn More
           </Link>
