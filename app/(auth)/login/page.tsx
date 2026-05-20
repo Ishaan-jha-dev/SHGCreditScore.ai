@@ -150,6 +150,19 @@ export default function LoginPage() {
             >
               {loading ? 'Sending...' : 'Send Secure OTP'}
             </button>
+
+            <div className="relative flex py-2 items-center">
+              <div className="flex-grow border-t border-border"></div>
+              <span className="flex-shrink mx-4 text-xs text-muted-foreground uppercase">or</span>
+              <div className="flex-grow border-t border-border"></div>
+            </div>
+
+            <Link
+              href="/dashboard"
+              className="flex h-10 w-full items-center justify-center rounded-md border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted transition-all"
+            >
+              Explore in Demo Mode →
+            </Link>
           </form>
         ) : (
           <form onSubmit={handleVerifyOtp} className="space-y-4">

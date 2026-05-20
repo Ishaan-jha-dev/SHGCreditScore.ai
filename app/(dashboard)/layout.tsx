@@ -95,6 +95,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <p className="text-xs text-muted-foreground">DeepSeek V4 Pro powers all AI features</p>
               </div>
             </div>
+
+            {/* View Switcher shortcut */}
+            <div className="mt-4 pt-4 border-t border-border">
+              <p className="text-xs font-semibold text-muted-foreground px-3 mb-2 uppercase tracking-wider">Portal View</p>
+              <Link href="/shg-login" className="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition-colors font-semibold">
+                <span className="text-base leading-none">👩‍🌾</span>
+                <span>Switch to SHG View</span>
+              </Link>
+            </div>
           </nav>
 
           <div className="p-4 border-t border-border">

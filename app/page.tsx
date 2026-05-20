@@ -81,26 +81,34 @@ export default function Home() {
           </p>
 
           {/* Two CTA portals */}
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 w-full max-w-xl">
-            <Link href="/login"
-              className="group flex flex-col items-start gap-3 rounded-lg border-2 border-border bg-card p-5 text-left shadow-sm transition-all hover:border-primary hover:shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-xl">🏦</div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 w-full max-w-2xl">
+            <div className="group flex flex-col items-start gap-4 rounded-xl border-2 border-border bg-card p-6 text-left shadow-sm transition-all hover:border-primary/50 hover:shadow-md">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-2xl">🏦</div>
               <div>
-                <h2 className="font-bold text-foreground group-hover:text-primary transition-colors">Bank Officer Portal</h2>
-                <p className="text-xs text-muted-foreground mt-0.5">Create assessments, manage SHGs, approve loans</p>
+                <h2 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">Bank Officer Portal</h2>
+                <p className="text-xs text-muted-foreground mt-1">Create assessments, verify documents, and calculate credit scores.</p>
               </div>
-              <span className="text-sm font-semibold text-primary">Enter Portal →</span>
-            </Link>
-
-            <Link href="/shg-login"
-              className="group flex flex-col items-start gap-3 rounded-lg border-2 border-border bg-card p-5 text-left shadow-sm transition-all hover:border-primary hover:shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-xl">👩‍🌾</div>
+              <div className="flex flex-col gap-2 w-full pt-2">
+                <Link href="/dashboard" className="inline-flex h-9 items-center justify-center rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary/90 transition-colors">
+                  Direct Demo Access →
+                </Link>
+                <Link href="/login" className="inline-flex h-9 items-center justify-center rounded-lg border border-border text-foreground text-xs font-semibold hover:bg-muted transition-colors">
+                  Secure Officer Login
+                </Link>
+              </div>
+            </div>
+            <div className="group flex flex-col items-start gap-4 rounded-xl border-2 border-border bg-card p-6 text-left shadow-sm transition-all hover:border-emerald-500/50 hover:shadow-md">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 text-2xl">👩‍🌾</div>
               <div>
-                <h2 className="font-bold text-foreground group-hover:text-primary transition-colors">SHG Group Portal</h2>
-                <p className="text-xs text-muted-foreground mt-0.5">Check your credit score and loan eligibility</p>
+                <h2 className="font-bold text-lg text-foreground group-hover:text-emerald-700 transition-colors">SHG Group Portal</h2>
+                <p className="text-xs text-muted-foreground mt-1">Check loan eligibility and credit score directly using your SHG ID.</p>
               </div>
-              <span className="text-sm font-semibold text-primary">Check Score →</span>
-            </Link>
+              <div className="flex flex-col gap-2 w-full pt-2">
+                <Link href="/shg-login" className="inline-flex h-9 items-center justify-center rounded-lg bg-emerald-600 text-white text-xs font-semibold hover:bg-emerald-700 transition-colors">
+                  Enter Portal & Search ID →
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 

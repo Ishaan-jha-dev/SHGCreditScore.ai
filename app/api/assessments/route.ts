@@ -7,11 +7,9 @@ export async function POST(req: Request) {
     const cookieStore = await cookies();
     const supabase = createClient(cookieStore);
 
-    // Check auth
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    // Fetch user if logged in, but do not block if they are in demo mode
+    const { data: { user } } = await supabase.auth.getUser();
+    const userId = user?.id || null;
 
     const { shgName, district, state, membersCount, formedDate } = await req.json();
 
@@ -24,7 +22,7 @@ export async function POST(req: Request) {
         state,
         members_count: parseInt(membersCount),
         formed_date: formedDate || null,
-        created_by: user.id,
+        created_by: userId,
       })
       .select()
       .single();
@@ -40,7 +38,7 @@ export async function POST(req: Request) {
       .insert({
         shg_id: shgGroup.id,
         status: 'pending',
-        created_by: user.id,
+        created_by: userId,
       })
       .select()
       .single();
