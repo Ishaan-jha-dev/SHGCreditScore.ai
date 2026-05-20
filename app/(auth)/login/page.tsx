@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -41,8 +42,8 @@ export default function LoginPage() {
     <div className="flex h-screen w-full items-center justify-center bg-background p-4">
       <div className="mx-auto w-full max-w-md space-y-6 rounded-lg bg-card p-8 shadow-sm border border-border">
         <div className="space-y-2 text-center">
-          <div className="mx-auto h-12 w-12 rounded flex items-center justify-center bg-primary mb-4">
-            <span className="text-primary-foreground font-bold text-xl">S</span>
+          <div className="relative mx-auto h-14 w-14 overflow-hidden rounded-lg shadow-sm border border-border mb-4">
+            <Image src="/logo.png" alt="SHG Credit Logo" fill className="object-cover" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-foreground">Officer Login</h1>
           <p className="text-sm text-muted-foreground">Access the SHG Credit Assessment Portal</p>

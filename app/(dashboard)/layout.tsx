@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function DashboardLayout({
@@ -10,8 +11,8 @@ export default function DashboardLayout({
     <div className="flex min-h-screen w-full flex-col bg-background">
       <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-border bg-card px-6">
         <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
-          <div className="h-8 w-8 rounded bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-xl">S</span>
+          <div className="relative h-8 w-8 overflow-hidden rounded-md shadow-sm border border-border">
+            <Image src="/logo.png" alt="SHG Credit Logo" fill className="object-cover" />
           </div>
           <span className="text-xl text-foreground font-bold tracking-tight">SHG Portal</span>
         </Link>

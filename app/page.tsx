@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Home() {
@@ -6,8 +7,8 @@ export default function Home() {
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <header className="px-6 lg:px-12 h-16 flex items-center bg-card border-b border-border sticky top-0 z-50">
         <Link className="flex items-center justify-center gap-2" href="/">
-          <div className="h-8 w-8 rounded bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-xl">S</span>
+          <div className="relative h-8 w-8 overflow-hidden rounded-md shadow-sm border border-border">
+            <Image src="/logo.png" alt="SHG Credit Logo" fill className="object-cover" />
           </div>
           <span className="font-bold text-xl tracking-tight text-foreground">SHG Credit Score</span>
         </Link>
