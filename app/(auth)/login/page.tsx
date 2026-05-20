@@ -49,8 +49,8 @@ export default function LoginPage() {
 
     try {
       const { error } = await supabase.auth.verifyOtp({
-        email,
-        token: otp,
+        email: email.trim().toLowerCase(),
+        token: otp.trim(),
         type: 'email',
       });
 
@@ -118,7 +118,7 @@ export default function LoginPage() {
                 maxLength={6}
                 className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-center tracking-[0.5em] font-mono placeholder:tracking-normal placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 value={otp}
-                onChange={(e) => setOtp(e.target.value)}
+                onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
               />
             </div>
             <button
