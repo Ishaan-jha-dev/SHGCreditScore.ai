@@ -5,12 +5,14 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { createClient } from '@/utils/supabase/client';
-import { LayoutDashboard, FileText, BarChart2, LogOut, Plus } from 'lucide-react';
+import { LayoutDashboard, FileText, BarChart2, LogOut, Plus, ShoppingCart, Landmark, Bot } from 'lucide-react';
 
 const navItems = [
-  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/dashboard/assessments', label: 'Assessments', icon: FileText },
-  { href: '/dashboard/analytics', label: 'Analytics', icon: BarChart2 },
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, exact: true },
+  { href: '/dashboard/assessments', label: 'Credit Scoring', icon: FileText, exact: false },
+  { href: '/dashboard/ecommerce', label: 'E-Commerce', icon: ShoppingCart, exact: false, badge: 'NEW' },
+  { href: '/dashboard/schemes', label: 'Govt Schemes', icon: Landmark, exact: false, badge: 'NEW' },
+  { href: '/dashboard/analytics', label: 'Analytics', icon: BarChart2, exact: false },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -31,8 +33,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <div className="relative h-8 w-8 overflow-hidden rounded-md shadow-sm border border-border">
             <Image src="/logo.png" alt="SHG Credit Logo" fill className="object-cover" />
           </div>
-          <span className="text-xl text-foreground font-bold tracking-tight">SHG Portal</span>
+          <div>
+            <span className="text-lg text-foreground font-bold tracking-tight">SHGBazaar</span>
+            <span className="text-xs text-muted-foreground block leading-none -mt-0.5">.ai</span>
+          </div>
         </Link>
+
+        {/* Module pills in header */}
+        <div className="hidden md:flex items-center gap-2 ml-4">
+          <span className="text-xs font-medium text-muted-foreground px-2 py-1 rounded-md bg-muted">M1: Credit</span>
+          <span className="text-xs font-medium text-primary px-2 py-1 rounded-md bg-primary/10">M2: E-Commerce</span>
+          <span className="text-xs font-medium text-emerald-700 px-2 py-1 rounded-md bg-emerald-50">M3: Schemes</span>
+        </div>
+
         <div className="ml-auto flex items-center gap-4">
           <ThemeToggle />
           <Link
@@ -44,11 +57,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </Link>
         </div>
       </header>
+
       <div className="flex flex-1">
         <aside className="hidden w-56 border-r border-border bg-card md:flex flex-col justify-between">
           <nav className="grid gap-1 p-4 text-sm font-medium">
-            {navItems.map(({ href, label, icon: Icon }) => {
-              const isActive = pathname === href || (href !== '/dashboard' && pathname.startsWith(href));
+            {navItems.map(({ href, label, icon: Icon, exact, badge }) => {
+              const isActive = exact ? pathname === href : pathname.startsWith(href);
               return (
                 <Link
                   key={href}
@@ -60,11 +74,29 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   }`}
                 >
                   <Icon className="h-4 w-4 shrink-0" />
-                  {label}
+                  <span className="flex-1">{label}</span>
+                  {badge && (
+                    <span className="text-[10px] font-bold bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full leading-none">
+                      {badge}
+                    </span>
+                  )}
                 </Link>
               );
             })}
+
+            {/* AI Advisor shortcut */}
+            <div className="mt-4 pt-4 border-t border-border">
+              <p className="text-xs font-semibold text-muted-foreground px-3 mb-2 uppercase tracking-wider">AI Tools</p>
+              <div className="rounded-lg border border-primary/20 bg-primary/5 p-3">
+                <div className="flex items-center gap-2 mb-1">
+                  <Bot className="w-4 h-4 text-primary" />
+                  <span className="text-xs font-semibold text-primary">AI Agents Active</span>
+                </div>
+                <p className="text-xs text-muted-foreground">DeepSeek V4 Pro powers all AI features</p>
+              </div>
+            </div>
           </nav>
+
           <div className="p-4 border-t border-border">
             <button
               onClick={handleLogout}
@@ -75,7 +107,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </button>
           </div>
         </aside>
-        <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 bg-muted/40">
+
+        <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 bg-muted/40 overflow-auto">
           {children}
         </main>
       </div>
