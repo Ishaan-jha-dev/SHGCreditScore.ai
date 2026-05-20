@@ -34,7 +34,7 @@ export default function LoginPage() {
       if (error) throw error;
       
       setStep('otp');
-      setMessage('A 6-digit code has been sent to your email.');
+      setMessage('An 8-digit security code has been sent to your email.');
     } catch (err: unknown) {
       setError((err as Error).message);
     } finally {
@@ -107,23 +107,23 @@ export default function LoginPage() {
           <form onSubmit={handleVerifyOtp} className="space-y-4">
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground" htmlFor="otp">
-                6-Digit Security Code
+                8-Digit Security Code
               </label>
               <input
                 id="otp"
                 type="text"
-                placeholder="123456"
+                placeholder="12345678"
                 required
-                pattern="\d{6}"
-                maxLength={6}
+                pattern="\d{8}"
+                maxLength={8}
                 className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-center tracking-[0.5em] font-mono placeholder:tracking-normal placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 value={otp}
-                onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 8))}
               />
             </div>
             <button
               type="submit"
-              disabled={loading || otp.length !== 6}
+              disabled={loading || otp.length !== 8}
               className="flex h-10 w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50"
             >
               {loading ? 'Verifying...' : 'Sign In'}
