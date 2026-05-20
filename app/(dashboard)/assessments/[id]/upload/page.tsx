@@ -65,9 +65,9 @@ export default function UploadDocumentsPage({ params }: { params: { id: string }
         <p className="text-muted-foreground">Upload meeting minutes, passbooks, and internal loan ledgers for SHG assessment.</p>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
+      <div className="rounded-lg border border-border bg-card p-8 shadow-sm">
         <form 
-          className={`flex flex-col items-center justify-center p-12 border-2 border-dashed rounded-xl transition-all ${dragActive ? 'border-primary bg-brand-50/50' : 'border-border hover:border-brand-300 hover:bg-slate-50'}`}
+          className={`flex flex-col items-center justify-center p-12 border-2 border-dashed rounded-xl transition-all ${dragActive ? 'border-primary bg-primary-50/50' : 'border-border hover:border-primary-300 hover:bg-slate-50'}`}
           onDragEnter={handleDrag}
           onDragLeave={handleDrag}
           onDragOver={handleDrag}
@@ -82,7 +82,7 @@ export default function UploadDocumentsPage({ params }: { params: { id: string }
             id="file-upload" 
           />
           <label htmlFor="file-upload" className="flex flex-col items-center justify-center cursor-pointer space-y-4">
-            <div className="p-4 bg-brand-50 rounded-full text-primary shadow-sm shadow-brand-100">
+            <div className="p-4 bg-primary-50 rounded-full text-primary shadow-sm shadow-primary-100">
               <UploadCloud className="h-8 w-8" />
             </div>
             <div className="text-center">
@@ -103,7 +103,7 @@ export default function UploadDocumentsPage({ params }: { params: { id: string }
                 <li key={index} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 border border-border bg-slate-50/50 rounded-xl gap-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-white rounded-lg shadow-sm">
-                      <File className="h-5 w-5 text-brand-600" />
+                      <File className="h-5 w-5 text-primary-600" />
                     </div>
                     <span className="text-sm font-semibold text-foreground truncate max-w-[200px]">{file.name}</span>
                   </div>
@@ -128,7 +128,7 @@ export default function UploadDocumentsPage({ params }: { params: { id: string }
           <button
             onClick={handleProcess}
             disabled={loading || files.length === 0}
-            className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-brand-500/20 transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 gap-2"
+            className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-primary-500/20 transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 gap-2"
           >
             {loading ? 'Processing...' : 'Process Documents'}
           </button>

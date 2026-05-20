@@ -9,7 +9,7 @@ export default function AnalyticsPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col justify-between h-[320px]">
+        <div className="rounded-lg border border-border bg-card p-6 shadow-sm flex flex-col justify-between h-[320px]">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <PieChart className="h-5 w-5 text-primary" />
@@ -34,7 +34,7 @@ export default function AnalyticsPage() {
           <div className="h-8"></div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col justify-between h-[320px]">
+        <div className="rounded-lg border border-border bg-card p-6 shadow-sm flex flex-col justify-between h-[320px]">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <TrendingUp className="h-5 w-5 text-primary" />
@@ -44,8 +44,8 @@ export default function AnalyticsPage() {
           </div>
           <div className="flex-1 flex items-end justify-between pt-6 px-2">
             {[45, 52, 58, 63, 71, 84].map((val, i) => (
-              <div key={i} className="w-10 bg-brand-100 rounded-t-lg relative group flex justify-center transition-all hover:bg-brand-200" style={{ height: `${val}%` }}>
-                <span className="absolute -top-7 text-xs font-bold text-brand-600">{val}%</span>
+              <div key={i} className="w-10 bg-primary-100 rounded-t-lg relative group flex justify-center transition-all hover:bg-primary-200" style={{ height: `${val}%` }}>
+                <span className="absolute -top-7 text-xs font-bold text-primary-600">{val}%</span>
                 <div className="absolute -bottom-7 text-xs font-medium text-muted-foreground">M{i+1}</div>
               </div>
             ))}
@@ -54,7 +54,7 @@ export default function AnalyticsPage() {
         </div>
       </div>
       
-      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm mt-6">
+      <div className="rounded-lg border border-border bg-card p-6 shadow-sm mt-6">
         <div className="flex items-center gap-2 mb-6">
           <Users className="h-5 w-5 text-primary" />
           <h3 className="font-semibold text-foreground">Top Performing Branches</h3>
@@ -67,7 +67,7 @@ export default function AnalyticsPage() {
           ].map((branch, i) => (
             <div key={i} className="flex items-center justify-between p-4 border border-border rounded-xl hover:bg-slate-50 transition-colors">
               <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 font-bold">
+                <div className="h-10 w-10 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 font-bold">
                   {i + 1}
                 </div>
                 <div>

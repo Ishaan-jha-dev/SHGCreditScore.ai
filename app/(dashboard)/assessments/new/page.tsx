@@ -46,7 +46,7 @@ export default function NewAssessmentPage() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground">New Assessment</h1>
         <p className="text-muted-foreground">Enter basic information about the Self-Help Group to begin.</p>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-6 rounded-2xl border border-border bg-card p-8 shadow-sm">
+      <form onSubmit={handleSubmit} className="space-y-6 rounded-lg border border-border bg-card p-8 shadow-sm">
         <div className="grid grid-cols-2 gap-6">
           <div className="space-y-2 col-span-2">
             <label className="text-sm font-semibold text-foreground leading-none" htmlFor="shgName">
@@ -128,7 +128,7 @@ export default function NewAssessmentPage() {
           <button
             type="submit"
             disabled={loading}
-            className="group inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-brand-500/20 transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 gap-2"
+            className="group inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-primary-500/20 transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 gap-2"
           >
             {loading ? 'Creating...' : 'Continue to Upload'}
             {!loading && <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />}

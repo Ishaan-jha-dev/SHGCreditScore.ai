@@ -11,7 +11,7 @@ export default function AssessmentsPage() {
         </div>
         <Link
           href="/dashboard/assessments/new"
-          className="inline-flex h-10 items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-brand-500/20 hover:bg-primary/90 transition-all hover:-translate-y-0.5 gap-2"
+          className="inline-flex h-10 items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-primary-500/20 hover:bg-primary/90 transition-all hover:-translate-y-0.5 gap-2"
         >
           <Plus className="h-4 w-4" />
           New Assessment
@@ -38,7 +38,7 @@ export default function AssessmentsPage() {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
+      <div className="rounded-lg border border-border bg-card shadow-sm overflow-hidden">
         <div className="relative w-full overflow-auto">
           <table className="w-full caption-bottom text-sm">
             <thead className="[&_tr]:border-b bg-slate-50/50">
@@ -68,7 +68,7 @@ export default function AssessmentsPage() {
                 </td>
                 <td className="p-6 align-middle text-muted-foreground">May 20, 2026</td>
                 <td className="p-6 align-middle text-right">
-                  <Link href="/dashboard/assessments/1" className="inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium text-primary hover:bg-brand-50 transition-colors">View</Link>
+                  <Link href="/dashboard/assessments/1" className="inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium text-primary hover:bg-primary-50 transition-colors">View</Link>
                 </td>
               </tr>
               <tr className="border-b border-border transition-colors hover:bg-slate-50/80">
@@ -105,7 +105,7 @@ export default function AssessmentsPage() {
                 </td>
                 <td className="p-6 align-middle text-muted-foreground">May 18, 2026</td>
                 <td className="p-6 align-middle text-right">
-                  <Link href="/dashboard/assessments/3" className="inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium text-primary hover:bg-brand-50 transition-colors">View</Link>
+                  <Link href="/dashboard/assessments/3" className="inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium text-primary hover:bg-primary-50 transition-colors">View</Link>
                 </td>
               </tr>
             </tbody>

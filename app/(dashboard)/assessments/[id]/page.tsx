@@ -37,7 +37,7 @@ export default function AssessmentDetailPage({ params }: { params: { id: string 
             <Download className="h-4 w-4" />
             Export PDF
           </button>
-          <button className="inline-flex h-10 items-center justify-center rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-brand-500/20 hover:bg-primary/90 transition-colors gap-2">
+          <button className="inline-flex h-10 items-center justify-center rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-primary-500/20 hover:bg-primary/90 transition-colors gap-2">
             <Check className="h-4 w-4" />
             Approve Loan
           </button>
@@ -60,7 +60,7 @@ export default function AssessmentDetailPage({ params }: { params: { id: string 
 
       <div className="grid gap-6 md:grid-cols-3">
         {/* Credit Score Card */}
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm md:col-span-1 flex flex-col items-center justify-center text-center relative overflow-hidden">
+        <div className="rounded-lg border border-border bg-card p-6 shadow-sm md:col-span-1 flex flex-col items-center justify-center text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
             <CheckCircle2 className="w-32 h-32 text-emerald-500" />
           </div>
@@ -92,13 +92,13 @@ export default function AssessmentDetailPage({ params }: { params: { id: string 
         </div>
 
         {/* Loan Recommendation Card */}
-        <div className="rounded-2xl border border-border bg-card p-8 shadow-sm md:col-span-2 flex flex-col justify-center">
+        <div className="rounded-lg border border-border bg-card p-8 shadow-sm md:col-span-2 flex flex-col justify-center">
           <h3 className="font-bold text-foreground mb-6 text-xl border-b border-border pb-3">Loan Recommendation</h3>
           
           <div className="grid grid-cols-2 gap-y-8 gap-x-6 mb-8">
             <div>
               <p className="text-sm font-medium text-muted-foreground mb-1">Recommended Amount</p>
-              <p className="text-3xl font-extrabold text-brand-600">₹{recommendation.loanAmount.toLocaleString()}</p>
+              <p className="text-3xl font-extrabold text-primary-600">₹{recommendation.loanAmount.toLocaleString()}</p>
             </div>
             <div>
               <p className="text-sm font-medium text-muted-foreground mb-1">Interest Rate</p>
@@ -129,7 +129,7 @@ export default function AssessmentDetailPage({ params }: { params: { id: string 
       </div>
       
       {/* Score Breakdown */}
-      <div className="rounded-2xl border border-border bg-card p-8 shadow-sm mb-8">
+      <div className="rounded-lg border border-border bg-card p-8 shadow-sm mb-8">
         <h3 className="font-bold text-foreground mb-6 text-xl">Score Breakdown</h3>
         <div className="space-y-8">
           <div>
@@ -138,7 +138,7 @@ export default function AssessmentDetailPage({ params }: { params: { id: string 
               <span className="font-bold text-muted-foreground">{scoreBreakdown.repaymentReliability} <span className="font-medium text-xs">/ 340 pts</span></span>
             </div>
             <div className="w-full bg-slate-100 rounded-full h-3 overflow-hidden border border-slate-200">
-              <div className="bg-gradient-to-r from-brand-400 to-brand-600 h-full rounded-full" style={{ width: `${(scoreBreakdown.repaymentReliability/340)*100}%` }}></div>
+              <div className="bg-gradient-to-r from-primary-400 to-primary-600 h-full rounded-full" style={{ width: `${(scoreBreakdown.repaymentReliability/340)*100}%` }}></div>
             </div>
           </div>
           <div>
@@ -147,7 +147,7 @@ export default function AssessmentDetailPage({ params }: { params: { id: string 
               <span className="font-bold text-muted-foreground">{scoreBreakdown.groupStability} <span className="font-medium text-xs">/ 255 pts</span></span>
             </div>
             <div className="w-full bg-slate-100 rounded-full h-3 overflow-hidden border border-slate-200">
-              <div className="bg-gradient-to-r from-brand-400 to-brand-600 h-full rounded-full" style={{ width: `${(scoreBreakdown.groupStability/255)*100}%` }}></div>
+              <div className="bg-gradient-to-r from-primary-400 to-primary-600 h-full rounded-full" style={{ width: `${(scoreBreakdown.groupStability/255)*100}%` }}></div>
             </div>
           </div>
           <div>
