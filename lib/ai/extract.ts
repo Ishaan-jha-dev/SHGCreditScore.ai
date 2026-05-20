@@ -1,14 +1,15 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { generateExtractionPrompt } from './extraction-prompt';
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
-});
+
 
 export async function extractFromDocument(
   fileUrl: string,
   documentType: string
 ): Promise<Record<string, unknown>> {
+  const anthropic = new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY || 'dummy_key_for_build',
+  });
   
   // Fetch document from storage
   const response = await fetch(fileUrl);
