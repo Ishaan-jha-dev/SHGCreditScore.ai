@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
           <span className="font-bold text-xl tracking-tight text-foreground">SHG Credit Score</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6 items-center">
+          <ThemeToggle />
           <Link className="text-sm font-medium text-muted-foreground hover:text-foreground" href="/login">
             Login
           </Link>

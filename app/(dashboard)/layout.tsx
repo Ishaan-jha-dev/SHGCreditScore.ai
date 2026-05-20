@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function DashboardLayout({
   children,
@@ -15,6 +16,7 @@ export default function DashboardLayout({
           <span className="text-xl text-foreground font-bold tracking-tight">SHG Portal</span>
         </Link>
         <div className="ml-auto flex items-center gap-4">
+          <ThemeToggle />
           <Link
             href="/dashboard/assessments/new"
             className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
