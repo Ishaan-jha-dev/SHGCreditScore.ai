@@ -8,7 +8,7 @@ const anthropic = new Anthropic({
 export async function extractFromDocument(
   fileUrl: string,
   documentType: string
-): Promise<any> {
+): Promise<Record<string, unknown>> {
   
   // Fetch document from storage
   const response = await fetch(fileUrl);

@@ -35,8 +35,8 @@ export default function RegisterPage() {
       // Registration successful, redirect to dashboard or login
       router.push('/dashboard');
       router.refresh();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError((err as Error).message);
     } finally {
       setLoading(false);
     }

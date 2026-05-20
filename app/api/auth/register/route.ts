@@ -38,8 +38,8 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true, user: authData.user });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Registration error:", error);
-    return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json({ error: (error as Error).message || 'Internal Server Error' }, { status: 500 });
   }
 }

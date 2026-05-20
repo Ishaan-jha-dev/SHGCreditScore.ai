@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
 
 export async function proxy(req: NextRequest) {
-  let res = NextResponse.next({
+  const res = NextResponse.next({
     request: {
       headers: req.headers,
     },
@@ -41,7 +41,7 @@ export async function proxy(req: NextRequest) {
     if (req.nextUrl.pathname.startsWith('/api/') && !req.nextUrl.pathname.startsWith('/api/auth') && !session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
-  } catch (error) {
+  } catch (_error) {
     // Silent fail if supabase not configured during build
   }
 
