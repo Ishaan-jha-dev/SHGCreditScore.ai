@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { User, Mail, Lock, Building, ArrowRight } from 'lucide-react';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -19,92 +18,76 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-slate-50 to-brand-50 dark:from-slate-950 dark:to-brand-950 p-4">
-      <div className="absolute inset-0 bg-grid-slate-100/[0.04] bg-[bottom_1px_center]" />
-      <div className="relative mx-auto w-full max-w-md space-y-8 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 shadow-2xl border border-white/20 dark:border-white/10">
-        <div className="space-y-3 text-center">
-          <div className="mx-auto h-12 w-12 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-brand-500/30 mb-4">
-            <span className="text-primary-foreground font-bold text-2xl">S</span>
+    <div className="flex h-screen w-full items-center justify-center bg-background p-4">
+      <div className="mx-auto w-full max-w-md space-y-6 rounded-lg bg-card p-8 shadow-sm border border-border">
+        <div className="space-y-2 text-center">
+          <div className="mx-auto h-12 w-12 rounded flex items-center justify-center bg-primary mb-4">
+            <span className="text-primary-foreground font-bold text-xl">S</span>
           </div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-foreground">Create Account</h1>
-          <p className="text-sm text-muted-foreground font-medium">Join the platform for bank officers</p>
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">Create Account</h1>
+          <p className="text-sm text-muted-foreground">Officer registration for SHG Portal</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-foreground leading-none" htmlFor="name">
+            <label className="text-sm font-medium text-foreground" htmlFor="name">
               Full Name
             </label>
-            <div className="relative">
-              <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-              <input
-                id="name"
-                type="text"
-                placeholder="Ravi Kumar"
-                required
-                className="flex h-11 w-full rounded-lg border border-border bg-white dark:bg-slate-950 px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
-              />
-            </div>
+            <input
+              id="name"
+              type="text"
+              placeholder="Ravi Kumar"
+              required
+              className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-foreground leading-none" htmlFor="email">
+            <label className="text-sm font-medium text-foreground" htmlFor="email">
               Email Address
             </label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-              <input
-                id="email"
-                type="email"
-                placeholder="officer@luckbank.in"
-                required
-                className="flex h-11 w-full rounded-lg border border-border bg-white dark:bg-slate-950 px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
-              />
-            </div>
+            <input
+              id="email"
+              type="email"
+              placeholder="officer@bank.in"
+              required
+              className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-foreground leading-none" htmlFor="bankId">
+            <label className="text-sm font-medium text-foreground" htmlFor="bankId">
               Bank ID
             </label>
-            <div className="relative">
-              <Building className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-              <input
-                id="bankId"
-                type="text"
-                placeholder="LUCK-8291"
-                required
-                className="flex h-11 w-full rounded-lg border border-border bg-white dark:bg-slate-950 px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
-              />
-            </div>
+            <input
+              id="bankId"
+              type="text"
+              placeholder="LUCK-8291"
+              required
+              className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-foreground leading-none" htmlFor="password">
+            <label className="text-sm font-medium text-foreground" htmlFor="password">
               Password
             </label>
-            <div className="relative">
-              <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-              <input
-                id="password"
-                type="password"
-                placeholder="••••••••"
-                required
-                className="flex h-11 w-full rounded-lg border border-border bg-white dark:bg-slate-950 px-10 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
-              />
-            </div>
+            <input
+              id="password"
+              type="password"
+              placeholder="••••••••"
+              required
+              className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="group mt-2 relative flex h-11 w-full items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-brand-500/20 transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 overflow-hidden"
+            className="flex h-10 w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 mt-2"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              {loading ? 'Creating Account...' : 'Create Account'}
-              {!loading && <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />}
-            </span>
+            {loading ? 'Creating...' : 'Register'}
           </button>
         </form>
-        <div className="text-center text-sm font-medium text-muted-foreground pt-2 border-t border-border">
+        <div className="text-center text-sm text-muted-foreground pt-4 border-t border-border mt-4">
           Already have an account?{' '}
-          <Link href="/login" className="font-semibold text-primary hover:text-primary/80 transition-colors">
-            Login here
+          <Link href="/login" className="font-medium text-primary hover:underline">
+            Login
           </Link>
         </div>
       </div>

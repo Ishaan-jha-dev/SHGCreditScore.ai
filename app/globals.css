@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #ecfdf5;
-  --color-brand-100: #d1fae5;
-  --color-brand-200: #a7f3d0;
-  --color-brand-300: #6ee7b7;
-  --color-brand-400: #34d399;
-  --color-brand-500: #10b981;
-  --color-brand-600: #059669;
-  --color-brand-700: #047857;
-  --color-brand-800: #065f46;
-  --color-brand-900: #064e3b;
-  --color-brand-950: #022c22;
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+  --color-brand-950: #172554;
 }
 
 :root {
@@ -20,12 +20,12 @@
   --card: #ffffff;
   --card-foreground: #0f172a;
   --border: #e2e8f0;
-  --primary: #059669;
+  --primary: #1d4ed8;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
   --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted-foreground: #475569;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,8 +35,8 @@
     --card: #0f172a;
     --card-foreground: #f8fafc;
     --border: #1e293b;
-    --primary: #10b981;
-    --primary-foreground: #022c22;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
     --secondary: #1e293b;
     --secondary-foreground: #f8fafc;
     --muted: #1e293b;
@@ -67,14 +67,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Glassmorphism utilities */
+/* Banking standard solid header */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
 }
-.dark .glass {
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
+
