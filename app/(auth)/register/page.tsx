@@ -7,15 +7,39 @@ import Image from 'next/image';
 
 export default function RegisterPage() {
   const router = useRouter();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [bankId, setBankId] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setError('');
+
+    try {
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, bankId, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Registration failed');
+      }
+
+      // Registration successful, redirect to dashboard or login
       router.push('/dashboard');
-    }, 1000);
+      router.refresh();
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -28,6 +52,9 @@ export default function RegisterPage() {
           <h1 className="text-2xl font-bold tracking-tight text-foreground">Create Account</h1>
           <p className="text-sm text-muted-foreground">Officer registration for SHG Portal</p>
         </div>
+        
+        {error && <p className="text-sm font-medium text-red-600 bg-red-50 p-3 rounded-md border border-red-100">{error}</p>}
+        
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground" htmlFor="name">
@@ -39,6 +66,8 @@ export default function RegisterPage() {
               placeholder="Ravi Kumar"
               required
               className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="space-y-2">
@@ -51,6 +80,8 @@ export default function RegisterPage() {
               placeholder="officer@bank.in"
               required
               className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="space-y-2">
@@ -63,6 +94,8 @@ export default function RegisterPage() {
               placeholder="LUCK-8291"
               required
               className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              value={bankId}
+              onChange={(e) => setBankId(e.target.value)}
             />
           </div>
           <div className="space-y-2">
@@ -75,6 +108,8 @@ export default function RegisterPage() {
               placeholder="••••••••"
               required
               className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button
